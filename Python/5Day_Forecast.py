@@ -28,13 +28,25 @@ print(f'Established Connection with "{db.name}" database')
 collection = db["forecast_3hr_5day"]
 print(f'"{collection.name}" Collection is successfully created')
 
-#Scrape top 200 cities
+# Scrape top 200 cities and countries
 def fetch_top_200_cities():
     url = "https://worldpopulationreview.com/cities"
-    soup = BeautifulSoup(requests.get(url).content, "html.parser")
-    rows = soup.find("table").find("tbody").find_all("tr")
-    data = [[r.find_all("td")[2].text.strip(), r.find_all("td")[3].text.strip()] for r in rows[:200]]
+    response = requests.get(url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content, "html.parser")
+    table = soup.find("table")
+    rows = table.find("tbody").find_all("tr")
+
+    data = []
+    for row in rows[:200]:
+        cols = row.find_all("td")
+        if len(cols) >= 4:
+            city = cols[2].text.strip()
+            country = cols[3].text.strip()
+            data.append([city, country])
+
     df = pd.DataFrame(data, columns=["City", "Country"])
+    print(df.head(5))
     return np.array(df["City"]), np.array(df["Country"])
 
 # ✅ Get coordinates

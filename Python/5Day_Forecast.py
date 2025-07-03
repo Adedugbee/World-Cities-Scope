@@ -1,3 +1,6 @@
+pip install pymongo
+print("PyMongo and its dependencies downloaded and installed successfully")
+
 import requests
 import time
 import pandas as pd
@@ -6,20 +9,24 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import os
 from pymongo import MongoClient
-
-# ✅ Environment setup
 print("Packages loaded successfully")
 
+# Setting up the OpenWeatherMap API Key as env variable
 API_KEY = open('My_Weather_API.txt', 'r').read().strip()  # strip to remove newline
+print("API_KEY:", API_KEY)
+
+#API Endpoints
 GEOCODE_URL = "http://api.openweathermap.org/geo/1.0/direct"
 FORECAST_URL = "http://api.openweathermap.org/data/2.5/forecast"
 AIR_QUALITY_URL = "http://api.openweathermap.org/data/2.5/air_pollution"
 
-# ✅ MongoDB connection
+# Connecting to the NoSQL database (MongoDB)
 client = MongoClient("mongodb://localhost:27017/")
 db = client["weather_etl"]
+print('Connection with ', db.name, ' is successful')
+
 collection = db["forecast_3hr_5day"]
-print("Connected to MongoDB")
+print(collection.name,' is successfully created')
 
 # ✅ Scrape top 200 cities
 def fetch_top_200_cities():

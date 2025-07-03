@@ -58,11 +58,15 @@ def geocode_city(city, country):
         return data["lat"], data["lon"]
     return None, None
 
-# ✅ Get 3-hourly forecast
+# Get 3-hourly forecast
 def fetch_forecast(lat, lon):
     params = {"lat": lat, "lon": lon, "units": "metric", "appid": API_KEY}
     r = requests.get(FORECAST_URL, params=params)
-    return r.json().get("list", []) if r.status_code == 200 else []
+    
+    if r.status_code == 200:
+        return r.json().get("list", [])
+    else:
+        return []
 
 # ✅ Get air quality
 def fetch_air_quality(lat, lon):

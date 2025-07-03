@@ -25,7 +25,6 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client["weather_etl"]
 print(f'Established Connection with "{db.name}" database')
 
-
 collection = db["forecast_3hr_5day"]
 print(f'"{collection.name}" Collection is successfully created')
 

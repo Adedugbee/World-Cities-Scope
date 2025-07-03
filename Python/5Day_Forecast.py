@@ -68,7 +68,7 @@ def fetch_forecast(lat, lon):
     else:
         return []
 
-# ✅ Get air quality
+# Get air quality
 def fetch_air_quality(lat, lon):
     r = requests.get(AIR_QUALITY_URL, params={"lat": lat, "lon": lon, "appid": API_KEY})
     if r.status_code == 200:
@@ -83,7 +83,7 @@ def fetch_air_quality(lat, lon):
         }
     return {}
 
-# ✅ Single ETL run
+# Single ETL run
 def run_once(cities, countries, run_id):
     docs = []
     for i, (city, country) in enumerate(zip(cities, countries)):
@@ -118,7 +118,7 @@ def run_once(cities, countries, run_id):
     else:
         print("No records to insert.")
 
-# ✅ Main loop
+# Main loop
 def main():
     cities, countries = fetch_top_200_cities()
     run_id = 1
@@ -127,7 +127,8 @@ def main():
         run_once(cities, countries, run_id)
         print(f"Run {run_id} completed.\nSleeping for 6 hours...\n")
         run_id += 1
-        time.sleep(21600)  # every 6 hours
+        # every 6 hours
+        time.sleep(21600)
 
 if __name__ == "__main__":
     main()

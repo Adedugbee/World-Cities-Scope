@@ -49,7 +49,7 @@ def fetch_top_200_cities():
     print(df.head(5))
     return np.array(df["City"]), np.array(df["Country"])
 
-# ✅ Get coordinates
+# Get coordinates from city name
 def geocode_city(city, country):
     params = {"q": f"{city},{country}", "limit": 1, "appid": API_KEY}
     r = requests.get(GEOCODE_URL, params=params)

@@ -23,12 +23,13 @@ AIR_QUALITY_URL = "http://api.openweathermap.org/data/2.5/air_pollution"
 # Connecting to the NoSQL database (MongoDB)
 client = MongoClient("mongodb://localhost:27017/")
 db = client["weather_etl"]
-print('Connection with ', db.name, ' is successful')
+print(f'Established Connection with "{db.name}" database')
+
 
 collection = db["forecast_3hr_5day"]
-print(collection.name,' is successfully created')
+print(f'"{collection.name}" Collection is successfully created')
 
-# ✅ Scrape top 200 cities
+#Scrape top 200 cities
 def fetch_top_200_cities():
     url = "https://worldpopulationreview.com/cities"
     soup = BeautifulSoup(requests.get(url).content, "html.parser")

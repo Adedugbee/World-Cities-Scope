@@ -1,7 +1,7 @@
 # install necessary packages if not already installed
 #pip install pandas numpy beautifulsoup4
 
-#import packages
+#import the necessary packages
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -16,7 +16,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Locate the table rows
 rows = soup.select("table tbody tr")[:200]  # Select top 200 rows
 
-# Extract rank, city, country, population
+# Extract rank, city, country, population columns from the table and strip whitespace
 data = []
 for row in rows:
     cols = row.find_all("td")

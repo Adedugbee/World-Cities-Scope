@@ -1,7 +1,7 @@
-#install necessary packages if not already installed
-pip install pandas numpy beautifulsoup4
+# install necessary packages if not already installed
+#pip install pandas numpy beautifulsoup4
 
-#import packages
+#import the necessary packages
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -16,7 +16,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Locate the table rows
 rows = soup.select("table tbody tr")[0:]  # Select all rows
 
-# Extract country, MF_Life_Expectancy, F_Life_Expectancy, M_Life_Expectancy
+# Extract country, MF_Life_Expectancy, F_Life_Expectancy, M_Life_Expectancy and strip whitespace
 data = []
 for row in rows:
     cols = row.find_all("td")

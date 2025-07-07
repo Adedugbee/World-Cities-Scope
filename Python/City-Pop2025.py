@@ -1,4 +1,4 @@
-# install necessary packages if not already installed
+# install necessary packages if not already installed \n
 #pip install pandas numpy beautifulsoup4
 
 #import the necessary packages

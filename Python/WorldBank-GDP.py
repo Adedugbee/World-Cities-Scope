@@ -35,7 +35,7 @@ df_pivot.columns.name = None  # remove the 'Year' header from columns
 df_pivot = df_pivot.rename(columns={"2023": "GDP 2023", "2024": "GDP 2024"})
 
 # Save to CSV
-#df_pivot.to_csv("world_gdp_2023_2024.csv", index=False)
+df_pivot.to_csv("world_gdp_2023_2024.csv", index=False)
 
 print("GDP data saved to 'world_gdp_2023_2024.csv'")
 print(df_pivot.head(10))

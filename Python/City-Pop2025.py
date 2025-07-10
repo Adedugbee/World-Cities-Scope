@@ -37,4 +37,4 @@ df[["Population 2025", "Population 2024"]] = df[["Population 2025", "Population 
 print(df.head())
 
 # Save to CSV
-#df.to_csv("top_200_cities.csv", index=False)
+df.to_csv("top_200_cities.csv", index=False)

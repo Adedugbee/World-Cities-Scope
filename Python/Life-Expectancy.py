@@ -34,4 +34,4 @@ df = pd.DataFrame(data, columns=["Country", "Average Life_Expectancy, UN 2024 (A
 print(df.head())
 
 # Save to CSV
-#df.to_csv("UN_Life_Expectancy.csv", index=False)
+df.to_csv("UN_Life_Expectancy.csv", index=False)

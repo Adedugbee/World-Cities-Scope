@@ -31,7 +31,7 @@ for row in rows:
         # Create DataFrame
 df = pd.DataFrame(data, columns=["Rank", "Country", "City", "Population 2025", "Population 2024"])
 
-# Optional: Replace 0s or missing populations with NaN
+# Replace 0s or missing populations with NaN
 df[["Population 2025", "Population 2024"]] = df[["Population 2025", "Population 2024"]].replace(0, np.nan)
 
 print(df.head())

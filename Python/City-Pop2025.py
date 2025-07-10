@@ -24,14 +24,15 @@ for row in rows:
         rank = cols[1].text.strip()
         city = cols[2].text.strip()
         country = cols[3].text.strip()
-        population = cols[4].text.strip()
-        data.append([rank, country, city, population])
+        population1 = cols[4].text.strip()
+        population2 = cols[5].text.strip()
+        data.append([rank, country, city, population1, population2])
 
         # Create DataFrame
-df = pd.DataFrame(data, columns=["Rank", "Country", "City", "Population 2025"])
+df = pd.DataFrame(data, columns=["Rank", "Country", "City", "Population 2025", "Population 2024"])
 
 # Optional: Replace 0s or missing populations with NaN
-df["Population 2025"] = df["Population 2025"].replace(0, np.nan)
+df[["Population 2025", "Population 2024"]] = df[["Population 2025", "Population 2024"]].replace(0, np.nan)
 
 print(df.head())
 

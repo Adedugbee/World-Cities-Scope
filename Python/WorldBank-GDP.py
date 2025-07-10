@@ -1,12 +1,12 @@
 import requests
 import pandas as pd
 
-# Define API URL and parameters
+# API URL and parameters
 url = "http://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD"
 params = {
     "format": "json",
     "date": "2023:2024",
-    "per_page": 10000  # ensure you get all countries
+    "per_page": 10000  # Capture all countries
 }
 
 # Make the request
@@ -31,11 +31,11 @@ df = pd.DataFrame([{
 df_pivot = df.pivot(index="Country", columns="Year", values="GDP").reset_index()
 df_pivot.columns.name = None  # remove the 'Year' header from columns
 
-# Optional: Rename columns for clarity
+# Renaming columns
 df_pivot = df_pivot.rename(columns={"2023": "GDP 2023", "2024": "GDP 2024"})
 
 # Save to CSV
 #df_pivot.to_csv("world_gdp_2023_2024.csv", index=False)
 
-print("✅ GDP data saved to 'world_gdp_2023_2024.csv'")
+print("GDP data saved to 'world_gdp_2023_2024.csv'")
 print(df_pivot.head(10))

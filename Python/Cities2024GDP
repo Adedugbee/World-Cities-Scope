@@ -27,7 +27,7 @@ for row in rows:
         data.append([cities, country,gdp])
 
         # Create DataFrame
-df = pd.DataFrame(data, columns=["Cities", Country," "Country","GDP in Millions USD"])
+df = pd.DataFrame(data, columns=["Cities", "Country","GDP in Millions USD"])
 
 # Replace 0s or missing populations with NaN
 df[["GDP in Millions USD"]] = df[["GDP in Millions USD"]].replace(0, np.nan)

@@ -1,6 +1,3 @@
-# Install necessary packages if not already installed
-# pip install pandas numpy beautifulsoup4 requests
-
 # Import necessary packages
 import requests
 from bs4 import BeautifulSoup
@@ -13,23 +10,23 @@ url = "https://en.wikipedia.org/wiki/List_of_cities_by_GDP"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
-# Locate the first relevant table (you may need to adjust if more than one table exists)
+# Locate the correct table by class name
 table = soup.find("table", {"class": "wikitable"})
 
 # Safety check if table exists
 if table:
     rows = table.find_all("tr")
-
-    # Extract data from table rows
     data = []
+
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all("td")
-        if len(cols) >= 3:
+
+        # Make sure there are at least 4 columns
+        if len(cols) >= 4:
             city = cols[1].text.strip()
             country = cols[2].text.strip()
             gdp = cols[3].text.strip().replace(",", "").replace("$", "")
 
-            # Try converting GDP to float, handle errors gracefully
             try:
                 gdp = float(gdp)
             except ValueError:
@@ -39,11 +36,9 @@ if table:
 
     # Create DataFrame
     df = pd.DataFrame(data, columns=["City", "Country", "GDP in Millions USD"])
-
     print(df.head(5))
 
-    # Save to CSV (uncomment if needed)
+    # Save to CSV if needed
     # df.to_csv("Cities-GDP.csv", index=False)
-
 else:
     print("GDP table not found on the page.")

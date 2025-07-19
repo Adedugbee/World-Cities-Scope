@@ -42,10 +42,10 @@ if table:
     df = pd.DataFrame(data, columns=["City (proper/metropolitan area)", "Country/Region", "GDP (Millions USD)"])
 
     # Show top 5 rows
-    print(df.head())
+    print(df.head(5))
 
     # Save to CSV
-    df.to_csv("cities_by_gdp.csv", index=False)
+    #df.to_csv("cities_by_gdp.csv", index=False)
 
 else:
     print("No table found on the page.")

@@ -1,4 +1,3 @@
-# Import necessary packages
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -10,25 +9,28 @@ url = "https://en.wikipedia.org/wiki/List_of_cities_by_GDP"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
-# Locate the correct table by class name
+# Find the first table with class "wikitable"
 table = soup.find("table", {"class": "wikitable"})
 
-# Safety check if table exists
 if table:
     rows = table.find_all("tr")
     data = []
 
-    for row in rows[1:]:  # Skip the header row
-        cols = row.find_all("td")
+    for row in rows[1:]:  # Skip header
+        cols = row.find_all(["td", "th"])  # Handle any mixed header cells
+        col_text = [col.get_text(strip=True) for col in cols]
 
-        # Make sure there are at least 4 columns
-        if len(cols) >= 4:
-            city = cols[1].text.strip()
-            country = cols[2].text.strip()
-            gdp = cols[3].text.strip().replace(",", "").replace("$", "")
+        # Print col_text to debug (optional)
+        # print(col_text)
+
+        # Only process rows with enough columns
+        if len(col_text) >= 4:
+            city = col_text[1]
+            country = col_text[2]
+            gdp_raw = col_text[3].replace(",", "").replace("$", "")
 
             try:
-                gdp = float(gdp)
+                gdp = float(gdp_raw)
             except ValueError:
                 gdp = np.nan
 
@@ -38,7 +40,7 @@ if table:
     df = pd.DataFrame(data, columns=["City", "Country", "GDP in Millions USD"])
     print(df.head(5))
 
-    # Save to CSV if needed
+    # Optional: Save to CSV
     # df.to_csv("Cities-GDP.csv", index=False)
 else:
-    print("GDP table not found on the page.")
+    print("GDP table not found.")

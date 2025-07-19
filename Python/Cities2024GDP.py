@@ -25,9 +25,9 @@ if table:
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all("td")
         if len(cols) >= 4:
-            city = cols[1].text.strip()
-            country = cols[2].text.strip()
-            gdp = cols[3].text.strip().replace(",", "").replace("$", "")
+            city = cols[0].text.strip()
+            country = cols[1].text.strip()
+            gdp = cols[2].text.strip().replace(",", "").replace("$", "")
 
             # Try converting GDP to float, handle errors gracefully
             try:
@@ -38,7 +38,7 @@ if table:
             data.append([city, country, gdp])
 
     # Create DataFrame
-    df = pd.DataFrame(data, columns=["City", "Country", "GDP in Millions USD"])
+    df = pd.DataFrame(data, columns=["City", "Country", "GDP in Billions USD"])
 
     print(df.head(5))
 

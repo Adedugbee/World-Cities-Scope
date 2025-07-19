@@ -1,7 +1,7 @@
-# install necessary packages if not already installed
-#pip install pandas numpy beautifulsoup4
+# Install necessary packages if not already installed
+# pip install pandas numpy beautifulsoup4 requests
 
-#import the necessary packages
+# Import necessary packages
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -13,26 +13,37 @@ url = "https://en.wikipedia.org/wiki/List_of_cities_by_GDP"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
-# Locate the table rows
-rows = soup.select("table tbody tr")[0:]  # Select all rows
+# Locate the first relevant table (you may need to adjust if more than one table exists)
+table = soup.find("table", {"class": "wikitable"})
 
-# Extract rank, city, country, population columns from the table and strip whitespace
-data = []
-for row in rows:
-    cols = row.find_all("td")
-    if len(cols) >= 3:
-        cities = cols[1].text.strip()
-        country = cols[2].text.strip()
-        gdp = cols[3].text.strip()
-        data.append([cities, country,gdp])
+# Safety check if table exists
+if table:
+    rows = table.find_all("tr")
 
-        # Create DataFrame
-df = pd.DataFrame(data, columns=["Cities", "Country","GDP in Millions USD"])
+    # Extract data from table rows
+    data = []
+    for row in rows[1:]:  # Skip the header row
+        cols = row.find_all("td")
+        if len(cols) >= 4:
+            city = cols[1].text.strip()
+            country = cols[2].text.strip()
+            gdp = cols[3].text.strip().replace(",", "").replace("$", "")
 
-# Replace 0s or missing populations with NaN
-df[["GDP in Millions USD"]] = df[["GDP in Millions USD"]].replace(0, np.nan)
+            # Try converting GDP to float, handle errors gracefully
+            try:
+                gdp = float(gdp)
+            except ValueError:
+                gdp = np.nan
 
-print(df.head(5))
+            data.append([city, country, gdp])
 
-# Save to CSV
-#df.to_csv("Cities-GDP", index=False)
+    # Create DataFrame
+    df = pd.DataFrame(data, columns=["City", "Country", "GDP in Millions USD"])
+
+    print(df.head(5))
+
+    # Save to CSV (uncomment if needed)
+    # df.to_csv("Cities-GDP.csv", index=False)
+
+else:
+    print("GDP table not found on the page.")

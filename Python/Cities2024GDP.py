@@ -29,9 +29,15 @@ if table:
         if len(col_text) >= 3:
             city = col_text[0]
             city = re.sub(r"\s*\([^)]*\)|\s*\[[^\]]*\]", "", city)  # remove (...) and [...]
-            city = city.split(",")[0]  # remove comma and everything after
-            city = city.strip()
-
+            # Keep comma and first 2 letters after it
+            if "," in city:
+                parts = city.split(",")
+                before_comma = parts[0].strip()
+                after_comma = parts[1][:2].strip()
+                city = f"{before_comma}, {after_comma}"
+            else:
+                city = city.strip()
+                
             country = col_text[1]
 
             gdp_raw = col_text[2]

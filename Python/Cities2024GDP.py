@@ -38,7 +38,8 @@ if table:
             else:
                 city = city.strip()
 
-            country = col_text[1]
+            #Clean Country
+            country = col_text[1].strip()
 
             gdp_raw = col_text[2]
 

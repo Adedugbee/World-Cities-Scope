@@ -28,7 +28,7 @@ if table:
         if len(col_text) >= 4:
             city = col_text[0]
             country = col_text[1]
-            gdp_raw = col_text[2].replace(",", "").replace("$", "")
+            gdp_raw = col_text[3].replace(",", "").replace("$", "")
 
             # Attempt to convert GDP to float
             try:
@@ -39,7 +39,7 @@ if table:
             data.append([city, country, gdp])
 
     # Create DataFrame
-    df = pd.DataFrame(data, columns=["City (proper/metropolitan area)", "Country/Region", "GDP (Millions USD)"])
+    df = pd.DataFrame(data, columns=["City (proper/metropolitan area)", "Country/Region", "GDP (Billions USD)"])
 
     # Show top 5 rows
     print(df.head())

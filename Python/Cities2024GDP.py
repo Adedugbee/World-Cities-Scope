@@ -33,11 +33,11 @@ if table:
             if "," in city:
                 parts = city.split(",")
                 before_comma = parts[0].strip()
-                after_comma = parts[1][:2].strip()
+                after_comma = parts[1][:3].strip()
                 city = f"{before_comma}, {after_comma}"
             else:
                 city = city.strip()
-                
+
             country = col_text[1]
 
             gdp_raw = col_text[2]

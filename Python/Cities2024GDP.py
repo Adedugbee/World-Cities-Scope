@@ -1,49 +1,51 @@
-# Install necessary packages if not already installed
-# pip install pandas numpy beautifulsoup4 requests
-
-# Import necessary packages
-import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
+import requests
 
+# URL of the Wikipedia page
 url = "https://en.wikipedia.org/wiki/List_of_cities_by_GDP"
 
-# Send HTTP request and parse the page
+# Send GET request
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
-# Locate the first relevant table (you may need to adjust if more than one table exists)
+# Find the main GDP table (first table with 'wikitable' class)
 table = soup.find("table", {"class": "wikitable"})
 
-# Safety check if table exists
+# List to store rows
+data = []
+
+# Check if table exists
 if table:
     rows = table.find_all("tr")
 
-    # Extract data from table rows
-    data = []
-    for row in rows[1:]:  # Skip the header row
-        cols = row.find_all("td")
-        if len(cols) >= 3:
-            city = cols[0].text.strip()
-            country = cols[1].text.strip()
-            gdp = cols[2].text.strip().replace(",", "").replace("$", "")
+    for row in rows[1:]:  # Skip header
+        cols = row.find_all(["td", "th"])
+        col_text = [col.get_text(strip=True) for col in cols]
 
-            # Try converting GDP to float, handle errors gracefully
+        # Ensure the row has enough columns (at least 4)
+        if len(col_text) >= 4:
+            city = col_text[1]
+            country = col_text[2]
+            gdp_raw = col_text[3].replace(",", "").replace("$", "")
+
+            # Attempt to convert GDP to float
             try:
-                gdp = float(gdp)
+                gdp = float(gdp_raw)
             except ValueError:
                 gdp = np.nan
 
             data.append([city, country, gdp])
 
     # Create DataFrame
-    df = pd.DataFrame(data, columns=["City", "Country", "GDP in Billions USD"])
+    df = pd.DataFrame(data, columns=["City (proper/metropolitan area)", "Country/Region", "GDP (Millions USD)"])
 
-    print(df.head(5))
+    # Show top 5 rows
+    print(df.head())
 
-    # Save to CSV (uncomment if needed)
-    # df.to_csv("Cities-GDP.csv", index=False)
+    # Save to CSV
+    df.to_csv("cities_by_gdp.csv", index=False)
 
 else:
-    print("GDP table not found on the page.")
+    print("No table found on the page.")

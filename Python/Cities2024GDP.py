@@ -26,9 +26,9 @@ if table:
 
         # Ensure the row has enough columns (at least 4)
         if len(col_text) >= 4:
-            city = col_text[1]
-            country = col_text[2]
-            gdp_raw = col_text[3].replace(",", "").replace("$", "")
+            city = col_text[0]
+            country = col_text[1]
+            gdp_raw = col_text[2].replace(",", "").replace("$", "")
 
             # Attempt to convert GDP to float
             try:

@@ -25,13 +25,13 @@ if table:
         cols = row.find_all(["td", "th"])
         col_text = [col.get_text(strip=True) for col in cols]
 
-        # Ensure the row has enough columns (at least 4)
-        if len(col_text) >= 4:
+        # Ensure the row has enough columns (at least 3)
+        if len(col_text) >= 3:
             city = col_text[0]
             country = col_text[1]
             gdp_raw = col_text[2]
 
-            # Remove text within parentheses or brackets
+            # Clean GDP string: remove (2021), [5], etc.
             gdp_cleaned = re.sub(r"\s*\([^)]*\)|\s*\[[^\]]*\]", "", gdp_raw)
 
             # Attempt to convert GDP to float
@@ -46,7 +46,7 @@ if table:
     df = pd.DataFrame(data, columns=["City (proper/metropolitan area)", "Country/Region", "GDP (Billions USD)"])
 
     # Show top 5 rows
-    print(df.head())
+    print(df.head(5))
 
     # Save to CSV
     df.to_csv("cities_by_gdp.csv", index=False)

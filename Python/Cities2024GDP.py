@@ -36,7 +36,7 @@ if table:
 
             # Attempt to convert GDP to float
             try:
-                gdp = float(gdp_raw)
+                gdp = float(gdp_cleaned.replace(",", ""))
             except ValueError:
                 gdp = np.nan
 

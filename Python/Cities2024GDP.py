@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 import requests
+import re
 
 # URL of the Wikipedia page
 url = "https://en.wikipedia.org/wiki/List_of_cities_by_GDP"
@@ -28,7 +29,10 @@ if table:
         if len(col_text) >= 4:
             city = col_text[0]
             country = col_text[1]
-            gdp_raw = col_text[3].replace(",", "").replace("$", "")
+            gdp_raw = col_text[2]
+
+            # Remove text within parentheses or brackets
+            gdp_cleaned = re.sub(r"\s*\([^)]*\)|\s*\[[^\]]*\]", "", gdp_raw)
 
             # Attempt to convert GDP to float
             try:

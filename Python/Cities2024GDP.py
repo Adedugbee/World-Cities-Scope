@@ -24,10 +24,10 @@ if table:
     data = []
     for row in rows[1:]:  # Skip the header row
         cols = row.find_all("td")
-        if len(cols) >= 4:
+        if len(cols) >= 3:
             city = cols[0].text.strip()
             country = cols[1].text.strip()
-            gdp = cols[3].text.strip().replace(",", "").replace("$", "")
+            gdp = cols[2].text.strip().replace(",", "").replace("$", "")
 
             # Try converting GDP to float, handle errors gracefully
             try:

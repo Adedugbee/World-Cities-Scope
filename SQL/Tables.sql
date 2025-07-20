@@ -25,3 +25,8 @@ CREATE TABLE world_gdp_2023_2024 (
   gdp_2024 BIGINT
 );
 
+CREATE TABLE cities_by_gdp (
+	`country` VARCHAR(100),
+  `city` VARCHAR(100),
+  `gdp_billion_usd` DECIMAL(15, 2)
+);

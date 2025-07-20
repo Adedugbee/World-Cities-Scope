@@ -28,7 +28,12 @@ if table:
         # Ensure the row has enough columns (at least 3)
         if len(col_text) >= 3:
             city = col_text[0]
+            city = re.sub(r"\s*\([^)]*\)|\s*\[[^\]]*\]", "", city)  # remove (...) and [...]
+            city = city.split(",")[0]  # remove comma and everything after
+            city = city.strip()
+
             country = col_text[1]
+
             gdp_raw = col_text[2]
 
             # Clean GDP string: remove (2021), [5], etc.

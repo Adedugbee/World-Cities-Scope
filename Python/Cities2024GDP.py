@@ -27,7 +27,7 @@ if table:
         if len(cols) >= 4:
             city = cols[0].text.strip()
             country = cols[1].text.strip()
-            gdp = cols[2].text.strip().replace(",", "").replace("$", "")
+            gdp = cols[3].text.strip().replace(",", "").replace("$", "")
 
             # Try converting GDP to float, handle errors gracefully
             try:

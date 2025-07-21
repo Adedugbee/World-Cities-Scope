@@ -5,9 +5,14 @@
 -- 3. gdp_per_capita (2024): The GDP per capita for 2024, computed by dividing total GDP by population, rounded to 2 decimal places.
 -- The result is sorted by the city's rank for easier interpretation or reporting.
 
-SELECT *, 
-  ROUND(((population_2025 - population_2024) / population_2024) * 100, 2) AS population_change,
-  ROUND(((gdp_2024 - gdp_2023) / gdp_2023) * 100, 2) AS gdp_change,
-  ROUND((gdp_2024 / population_2024), 2) AS 'gdp_per_capita (2024)'
-FROM city_life_gdp_mv
+-- 
+SELECT *, ROUND(((population_2025 - population_2024) / population_2024) * 100, 2) AS population_change,
+Round(((gdp_2024 - gdp_2023) / gdp_2023) * 100, 2) AS 2024_gdp_change,
+Round((((gdp_billion_usd) *1000000000) / gdp_2023) * 100, 2) AS percent_of_2023gdp,
+Round((((gdp_billion_usd) *1000000000) / gdp_2024) * 100, 2) AS percent_of_2024gdp,
+Round((((gdp_billion_usd) *1000000000)/ population_2024), 2) AS 'gdp_per_capita (2024)'
+FROM city_life_gdp_mv 
 ORDER BY `Rank`;
+
+
+

@@ -9,6 +9,7 @@
 -- The data is sourced from the `city_life_gdp_mv` materialized view.
 -- The result is sorted by the city's rank and exported for further analysis.
 
+-- 
 SELECT 
 `rank`,
 city,
@@ -18,7 +19,9 @@ population_2025,
 avg_life_expectancy_2024,
 female_life_expectancy_2024,
 male_life_expectancy_2024,
-gdp_billion_usd,
+gdp_billion_usd as city_gdp_billion_usd,
+gdp_2023 as country_gdp_2023,
+gdp_2024 as country_gdp_2024,
 ROUND(((population_2025 - population_2024) / population_2024) * 100, 2) AS '2024_2025_population_change (%)',
 Round(((gdp_2024 - gdp_2023) / gdp_2023) * 100, 2) AS '2023_2024_gdp_change (%)',
 Round((((gdp_billion_usd) *1000000000) / gdp_2023) * 100, 2) AS percent_of_total_2023_gdp,
@@ -26,5 +29,8 @@ Round((((gdp_billion_usd) *1000000000) / gdp_2024) * 100, 2) AS percent_of_total
 Round((((gdp_billion_usd) *1000000000)/ population_2024), 2) AS 'gdp_per_capita (2024)'
 FROM city_life_gdp_mv 
 ORDER BY `Rank`;
+
+
+
 
 

@@ -25,3 +25,14 @@ Normalize and clean column names.
 ## Schema Definition:
 #### Tables created using the following DDL (Data Definition Language):
 [Create Table](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/Tables.sql)
+
+## CSVs imported into MySQL:
+* Used MySQL Workbench import.
+
+* Manual review before importing cities_by_gdp to ensure clean and accurate matching.
+
+
+# 4. Data Integration
+## Inner Join Query:
+Combined all datasets into one integrated view using:
+

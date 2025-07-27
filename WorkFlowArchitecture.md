@@ -1,3 +1,6 @@
+# 1. Data Ingestion Layer
+# Web Scraping and API Access
+
 | Source                                                                                                                                | Method                                           | Description                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------ |
 | [worldpopulationreview.com/cities](https://worldpopulationreview.com/cities)                                                          | Web scraping (e.g., `BeautifulSoup`, `Selenium`) | Extract top 200 cities with population forecasts for 2024 and 2025 |

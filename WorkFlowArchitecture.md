@@ -1,3 +1,6 @@
-
-    | Data 1A | Data 1B | Data 1C |
-    | Data 2A | Data 2B | Data 2C |
+| Source                                                                                                                                | Method                                           | Description                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------ |
+| [worldpopulationreview.com/cities](https://worldpopulationreview.com/cities)                                                          | Web scraping (e.g., `BeautifulSoup`, `Selenium`) | Extract top 200 cities with population forecasts for 2024 and 2025 |
+| [worldpopulationreview.com/life-expectancy-by-country](https://worldpopulationreview.com/country-rankings/life-expectancy-by-country) | Web scraping                                     | Scrape average, male, and female life expectancy data by country   |
+| [api.worldbank.org](http://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD)                                                 | API calls (e.g., `requests`)                     | Get GDP data (2023 & 2024) per country                             |
+| [Wikipedia - Cities by GDP](https://en.wikipedia.org/wiki/List_of_cities_by_GDP)                                                      | Web scraping + manual cleaning                   | GDP per city in billions of USD                                    |

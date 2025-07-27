@@ -35,4 +35,8 @@ Normalize and clean column names.
 # 4. Data Integration
 ## Inner Join Query:
 Combined all datasets into one integrated view using:
+[Inner Join](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/Inner_Join_All_Tables.sql)
 
+## Materialized View:
+Created for performance optimization:
+[MQT]()

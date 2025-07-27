@@ -23,4 +23,5 @@ Normalize and clean column names.
 
 # 3. Data Storage Layer (MySQL)
 ## Schema Definition:
-### Tables created using the following DDL (Data Definition Language):
+#### Tables created using the following DDL (Data Definition Language):
+[Create Table](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/Tables.sql)

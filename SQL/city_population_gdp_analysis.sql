@@ -30,6 +30,8 @@ Round((((gdp_billion_usd) *1000000000)/ population_2024), 2) AS 'gdp_per_capita 
 FROM city_life_gdp_mv 
 ORDER BY `Rank`;
 
+SELECT COUNT(*) FROM city_life_gdp_mv;
+
 
 
 

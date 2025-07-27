@@ -14,8 +14,8 @@
 ## Common Steps:
 Normalize and clean column names.
 
-*Convert numerical columns to proper data types (e.g., int, float).
+**Convert numerical columns to proper data types (e.g., int, float).
 
-*Clean Wikipedia city names (remove footnotes/superscripts using regex).
+**Clean Wikipedia city names (remove footnotes/superscripts using regex).
 
-*Validate consistency between city/country names across datasets.
+**Validate consistency between city/country names across datasets.

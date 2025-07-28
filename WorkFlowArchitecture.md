@@ -62,7 +62,7 @@ Created for performance optimization:
 
 # 6. Output & Visualization
 ## Final Output:
-- Exported the final integrated dataset to CSV using MySQL Workbench or Python (pandas.to_csv()).
+- Exported the final integrated dataset to CSV using MySQL Workbench.
 
 - Row count after cleaning: 103 cities.
 

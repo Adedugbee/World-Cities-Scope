@@ -49,14 +49,14 @@ Created for performance optimization:
 - Population growth (%):
   * (population_2025 - population_2024) / population_2024 * 100
 
-* GDP change (%):
+- GDP change (%):
   * (gdp_2024 - gdp_2023) / gdp_2023 * 100
 
-* City GDP as % of national GDP:
+- City GDP as % of national GDP:
   * 2023: (city_gdp / country_gdp_2023)
   * 2024: (city_gdp / country_gdp_2024)
 
-* GDP per capita:
+- GDP per capita:
   * (city_gdp * 1B) / population_2024
  
 

@@ -8,7 +8,7 @@
 | [api.worldbank.org](http://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD)                                                 | API calls (e.g., `requests`)                     | Get GDP data (2023 & 2024) per country                             |
 | [Wikipedia - Cities by GDP](https://en.wikipedia.org/wiki/List_of_cities_by_GDP)                                                      | Web scraping + manual cleaning                   | GDP per city in billions of USD                                    |
 
-## Output: Raw data as pandas DataFrames, saved to CSVs
+## Output: Raw data as pandas DataFrames, saved to [CSVs](https://github.com/Adedugbee/World-Cities-Scope/tree/main/CSV)
 
 # 2. Data Cleaning & Transformation
 ## Common Steps:

@@ -70,8 +70,8 @@ Created for performance optimization:
 Created dashboards in Google Looker Studio, with views like:
 - City-wise population vs GDP growth (%)
 - Top cities by GDP per capita
-- GDP distribution by country
-- City rankings by life expectancy and wealth
+- Two conscecutive years of top cities populations 
+- City rankings by life expectancy
 
 View full insights visualized in the attached [PDF](https://github.com/Adedugbee/World-Cities-Scope/tree/main/DataVizPDF)
 

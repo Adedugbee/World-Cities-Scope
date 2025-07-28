@@ -1,5 +1,5 @@
 # Urban Metrics Data Engineering Project
-This project demonstrates an end-to-end data engineering workflow for analyzing global urban trends. The top 200 cities by population were scraped from World Population Review, country-level life expectancy data was collected from the same source, **GDP** figures for **2023** and **2024** were retrieved via the **World Bank API**, and city-level **GDP** data was extracted from Wikipedia. Majority of the data were cleaned with python before the final manual cleaning the output CSV files.
+This project demonstrates an end-to-end data engineering workflow for analyzing global urban trends. The top 200 cities by population were scraped from World Population Review, country-level life expectancy data was collected from the same source, **GDP** figures for **2023** and **2024** were retrieved via the **World Bank API**, and city-level **GDP** data was extracted from Wikipedia. The majority of data cleaning was handled in Python, with final manual adjustments applied directly to the CSV files after they were exported.
 
 Using Python tools such as Pandas, BeautifulSoup, and Requests, the datasets were cleaned, normalized, and saved as **CSV** files. These files were then imported into a **MySQL** relational database, where the schema was designed to support relational joins and analytical transformations.
 

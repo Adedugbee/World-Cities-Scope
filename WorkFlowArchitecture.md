@@ -43,8 +43,9 @@ Created for performance optimization:
 
 
 # 5. Analytical Calculations
-Complex metrics included:
+[Complex metrics included](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/city_population_gdp_analysis.sql):
 
+### Snippet
 * Population growth (%):
 (population_2025 - population_2024) / population_2024 * 100
 
@@ -53,9 +54,8 @@ Complex metrics included:
 
 * City GDP as % of national GDP:
 
-** 2023: (city_gdp / country_gdp_2023)
-
-** 2024: (city_gdp / country_gdp_2024)
+  * 2023: (city_gdp / country_gdp_2023)
+  * 2024: (city_gdp / country_gdp_2024)
 
 * GDP per capita:
 (city_gdp * 1B) / population_2024

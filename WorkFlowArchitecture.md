@@ -34,9 +34,28 @@ Normalize and clean column names.
 
 # 4. Data Integration
 ## Inner Join Query:
-Combined all datasets into one integrated view using:
+Combined all datasets into one integrated view using matching columns:
 [Inner Join](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/Inner_Join_All_Tables.sql)
 
 ## Materialized View:
 Created for performance optimization:
-[MQT]()
+[MQT](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/Materialized_View.sql)
+
+
+# 5. Analytical Calculations
+Complex metrics included:
+
+* Population growth (%):
+(population_2025 - population_2024) / population_2024 * 100
+
+* GDP change (%):
+(gdp_2024 - gdp_2023) / gdp_2023 * 100
+
+* City GDP as % of national GDP:
+
+** 2023: (city_gdp / country_gdp_2023)
+
+** 2024: (city_gdp / country_gdp_2024)
+
+* GDP per capita:
+(city_gdp * 1B) / population_2024

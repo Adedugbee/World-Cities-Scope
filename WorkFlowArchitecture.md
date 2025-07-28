@@ -73,4 +73,27 @@ Created dashboards in Google Looker Studio, with views like:
 - GDP distribution by country
 - City rankings by life expectancy and wealth
 
-View full insights visualized in the attached [PDF](
+View full insights visualized in the attached [PDF](https://github.com/Adedugbee/World-Cities-Scope/tree/main/DataVizPDF)
+
+## Summary: Workflow Architecture
+  A[Data Sources]
+  A1[WorldPopulationReview - Cities]
+  A2[WorldPopulationReview - Life Expectancy]
+  A3[World Bank API - GDP]
+  A4[Wikipedia - City GDP]
+
+  B[Data Extraction]
+  C[Data Cleaning & Transformation]
+  D[CSV Storage]
+  E[MySQL Database]
+  F[Data Integration - SQL JOINs]
+  G[Materialized View]
+  H[Analytical Queries]
+  I[CSV Export]
+  J[Looker Studio Visualization]
+
+  A1 --> B
+  A2 --> B
+  A3 --> B
+  A4 --> B
+  B --> C --> D --> E --> F --> G --> H --> I --> J

@@ -47,7 +47,7 @@ Created for performance optimization:
 
 ### Snippet
 - Population growth (%):
-  * (population_2025 - population_2024) / population_2024 * 100
+  + (population_2025 - population_2024) / population_2024 * 100
 
 - GDP change (%):
   * (gdp_2024 - gdp_2023) / gdp_2023 * 100

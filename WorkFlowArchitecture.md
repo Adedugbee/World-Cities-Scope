@@ -66,15 +66,11 @@ Created for performance optimization:
 
 - Row count after cleaning: 103 cities.
 
-Visualization:
+## Visualization:
 Created dashboards in Google Looker Studio, with views like:
+- City-wise population vs GDP growth (%)
+- Top cities by GDP per capita
+- GDP distribution by country
+- City rankings by life expectancy and wealth
 
-City-wise population vs GDP growth (%)
-
-Top cities by GDP per capita
-
-GDP distribution by country
-
-City rankings by life expectancy and wealth
-
-Insights visualized in the attached PDF
+View full insights visualized in the attached [PDF](

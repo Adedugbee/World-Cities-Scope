@@ -57,4 +57,24 @@ Created for performance optimization:
   * 2024: (city_gdp / country_gdp_2024)
 
 * GDP per capita:
- * (city_gdp * 1B) / population_2024
+  * (city_gdp * 1B) / population_2024
+ 
+
+# 6. Output & Visualization
+## Final Output:
+- Exported the final integrated dataset to CSV using MySQL Workbench or Python (pandas.to_csv()).
+
+- Row count after cleaning: 103 cities.
+
+Visualization:
+Created dashboards in Google Looker Studio, with views like:
+
+City-wise population vs GDP growth (%)
+
+Top cities by GDP per capita
+
+GDP distribution by country
+
+City rankings by life expectancy and wealth
+
+Insights visualized in the attached PDF

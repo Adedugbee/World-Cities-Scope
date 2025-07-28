@@ -46,8 +46,8 @@ Created for performance optimization:
 [Complex metrics included](https://github.com/Adedugbee/World-Cities-Scope/blob/main/SQL/city_population_gdp_analysis.sql):
 
 ### Snippet
-* Population growth (%):
- + (population_2025 - population_2024) / population_2024 * 100
+- Population growth (%):
+(population_2025 - population_2024) / population_2024 * 100
 
 * GDP change (%):
  (gdp_2024 - gdp_2023) / gdp_2023 * 100
